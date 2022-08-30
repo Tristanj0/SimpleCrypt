@@ -1,3 +1,5 @@
+package cipher;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -86,6 +88,18 @@ public class ROT13Test {
         System.out.println(actual);
         // Then
         assertTrue(actual.equals(Q1));
+    }
+
+    @Test
+    public void encryptTest() {
+        ROT13 cipher = new ROT13();
+        System.out.println(cipher.readFile("sonnet18.txt"));
+    }
+
+    @Test
+    public void setEncryptedTextToFileTest() throws FileNotFoundException, UnsupportedEncodingExcpetion {
+        ROT13 cipher = new ROT13();
+        cipher.setEncryptedTextToFile(cipher.crypt(cipher.readFile("sonnet18.enc")), "sonnet18.enc");
     }
 
 }
